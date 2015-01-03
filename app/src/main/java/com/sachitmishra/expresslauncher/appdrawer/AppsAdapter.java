@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 
 import com.sachitmishra.expresslauncher.R;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,7 +24,7 @@ import java.util.List;
  */
 public class AppsAdapter extends BaseAdapter {
 
-    private List<ResolveInfo> apps;
+    private List<AppDisplay> apps;
     private Activity activity;
 
     public AppsAdapter(Activity activity) {
@@ -29,7 +32,15 @@ public class AppsAdapter extends BaseAdapter {
 
         Intent mainIntent = new Intent(Intent.ACTION_MAIN);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        apps = activity.getPackageManager().queryIntentActivities(mainIntent, 0);
+        List<ResolveInfo> appResolveInfos = activity.getPackageManager().queryIntentActivities(mainIntent, 0);
+        apps = new ArrayList<>();
+        for (ResolveInfo appInfo : appResolveInfos) {
+            Drawable icon = appInfo.activityInfo.loadIcon(activity.getPackageManager());
+            String label = appInfo.activityInfo.loadLabel(activity.getPackageManager()).toString();
+            AppDisplay app = new AppDisplay(icon, label);
+            apps.add(app);
+        }
+        Collections.sort(apps);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -38,17 +49,6 @@ public class AppsAdapter extends BaseAdapter {
         TextView label;
 
         if (convertView == null) {
-//            view = new RelativeLayout(activity);
-//            view.setGravity(RelativeLayout.CENTER_IN_PARENT);
-//            icon = new ImageView(activity);
-//            icon.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-//            icon.setLayoutParams(new GridView.LayoutParams(110, 150));
-//            icon.setPadding(8, 8, 8, 8);
-//            view.addView(icon);
-//            label = new TextView(activity);
-//            label.setGravity(RelativeLayout.ALIGN_BOTTOM);
-//            label.setText("App name");
-//            view.addView(label);
             LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.app_drawer_item, null);
             icon = (ImageView) view.findViewById(R.id.app_drawer_item_icon);
@@ -60,9 +60,8 @@ public class AppsAdapter extends BaseAdapter {
             label = (TextView) view.findViewById(R.id.app_drawer_item_label);
         }
 
-        ResolveInfo info = apps.get(position);
-        icon.setImageDrawable(info.activityInfo.loadIcon(activity.getPackageManager()));
-        label.setText(info.activityInfo.loadLabel(activity.getPackageManager()));
+        icon.setImageDrawable(apps.get(position).getIcon());
+        label.setText(apps.get(position).getLabel());
 
         return view;
     }

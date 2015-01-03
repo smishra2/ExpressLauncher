@@ -10,7 +10,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Apps"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
     
     <GridView
         android:id="@+id/apps_grid"

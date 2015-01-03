@@ -5,10 +5,15 @@ import android.graphics.drawable.Drawable;
 /**
  * Created by Sachit on 1/3/2015.
  */
-public class AppDisplay {
+public class AppDisplay implements Comparable<AppDisplay> {
 
     private Drawable icon;
-    private String appName;
+    private String label;
+
+    public AppDisplay(Drawable icon, String label) {
+        this.icon = icon;
+        this.label = label;
+    }
 
     public Drawable getIcon() {
         return icon;
@@ -18,11 +23,16 @@ public class AppDisplay {
         this.icon = icon;
     }
 
-    public String getAppName() {
-        return appName;
+    public String getLabel() {
+        return label;
     }
 
-    public void setAppName(String appName) {
-        this.appName = appName;
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @Override
+    public int compareTo(AppDisplay otherApp) {
+        return label.compareToIgnoreCase(otherApp.label);
     }
 }
