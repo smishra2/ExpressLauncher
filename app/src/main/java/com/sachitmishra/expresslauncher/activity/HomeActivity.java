@@ -1,4 +1,4 @@
-package com.sachitmishra.expresslauncher;
+package com.sachitmishra.expresslauncher.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.sachitmishra.expresslauncher.R;
 
 /**
  * Created by Sachit on 1/2/2015.
@@ -33,9 +35,15 @@ public class HomeActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, AppDrawer.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_up, 0);
+                overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
             }
         });
+    }
+
+    // Override back button so it does nothing, probably not the right way to do things?
+    @Override
+    public void onBackPressed() {
+        // do nothing
     }
 
 }
