@@ -5,7 +5,7 @@
 
 
     <android.gesture.GestureOverlayView
-        android:id="@+id/gesturesOverlay"
+        android:id="@+id/gestures_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fadeOffset="700"

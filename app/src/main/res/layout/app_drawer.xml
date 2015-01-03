@@ -11,5 +11,21 @@
         android:text="Apps"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
+    
+    <GridView
+        android:id="@+id/apps_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="4"
+        android:columnWidth="90dp"
+        android:verticalSpacing="15dp"
+        android:horizontalSpacing="10dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:verticalScrollbarPosition="right"
+        android:scrollbars="vertical"
+        android:stretchMode="columnWidth"
+        android:gravity="center">
+    </GridView>
 
 </LinearLayout>
