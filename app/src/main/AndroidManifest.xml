@@ -25,6 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.sachitmishra.expresslauncher.AppDrawer"
+            android:label="Express Launcher App Drawer"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:noHistory="true">
+        </activity>
+
     </application>
 
 </manifest>
