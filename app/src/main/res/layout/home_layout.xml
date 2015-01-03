@@ -5,10 +5,10 @@
 
 
     <android.gesture.GestureOverlayView
-        android:id="@+id/gestures_sensor"
+        android:id="@+id/gesturesOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fadeOffset="100"
+        android:fadeOffset="700"
         android:gestureStrokeType="multiple"
         android:gestureColor="#FFF"
         android:uncertainGestureColor="#000000">
@@ -18,8 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Settings"
-            android:id="@+id/settingsButton"
+            android:text="Gestures"
+            android:id="@+id/menu_button"
             android:layout_gravity="bottom"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="35dp"/>
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Apps"
-            android:id="@+id/appsButton"
+            android:id="@+id/apps_button"
             android:layout_gravity="bottom|right"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="35dp" />

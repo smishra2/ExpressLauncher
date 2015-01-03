@@ -1,8 +1,11 @@
 package com.sachitmishra.expresslauncher;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by Sachit on 1/2/2015.
@@ -14,6 +17,25 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.home_layout);
+
+        // Button clicks
+        TextView gestureMenuButton = (TextView) findViewById(R.id.menu_button);
+        gestureMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        TextView appDrawerButton = (TextView) findViewById(R.id.apps_button);
+        appDrawerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, AppDrawer.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, 0);
+            }
+        });
     }
 
 }
