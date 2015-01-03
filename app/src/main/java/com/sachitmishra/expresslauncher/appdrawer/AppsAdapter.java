@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sachitmishra.expresslauncher.R;
@@ -35,9 +34,12 @@ public class AppsAdapter extends BaseAdapter {
         List<ResolveInfo> appResolveInfos = activity.getPackageManager().queryIntentActivities(mainIntent, 0);
         apps = new ArrayList<>();
         for (ResolveInfo appInfo : appResolveInfos) {
-            Drawable icon = appInfo.activityInfo.loadIcon(activity.getPackageManager());
-            String label = appInfo.activityInfo.loadLabel(activity.getPackageManager()).toString();
-            AppDisplay app = new AppDisplay(icon, label);
+            Drawable icon = appInfo.loadIcon(activity.getPackageManager());
+            String label = appInfo.loadLabel(activity.getPackageManager()).toString();
+            Intent intent = new Intent();
+            intent.setClassName(appInfo.activityInfo.applicationInfo.packageName,
+                    appInfo.activityInfo.name);
+            AppDisplay app = new AppDisplay(icon, label, intent);
             apps.add(app);
         }
         Collections.sort(apps);
@@ -62,6 +64,14 @@ public class AppsAdapter extends BaseAdapter {
 
         icon.setImageDrawable(apps.get(position).getIcon());
         label.setText(apps.get(position).getLabel());
+        final Intent intent = apps.get(position).getLaunchIntent();
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppsAdapter.this.activity.startActivity(intent);
+            }
+        });
 
         return view;
     }

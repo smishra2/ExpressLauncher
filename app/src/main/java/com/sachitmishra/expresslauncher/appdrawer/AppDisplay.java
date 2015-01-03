@@ -1,5 +1,6 @@
 package com.sachitmishra.expresslauncher.appdrawer;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
 /**
@@ -9,10 +10,12 @@ public class AppDisplay implements Comparable<AppDisplay> {
 
     private Drawable icon;
     private String label;
+    private Intent launchIntent;
 
-    public AppDisplay(Drawable icon, String label) {
+    public AppDisplay(Drawable icon, String label, Intent launchIntent) {
         this.icon = icon;
         this.label = label;
+        this.launchIntent = launchIntent;
     }
 
     public Drawable getIcon() {
@@ -29,6 +32,10 @@ public class AppDisplay implements Comparable<AppDisplay> {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public Intent getLaunchIntent() {
+        return launchIntent;
     }
 
     @Override
