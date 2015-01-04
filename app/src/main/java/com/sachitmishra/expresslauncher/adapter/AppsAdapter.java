@@ -57,8 +57,7 @@ public class AppsAdapter extends BaseAdapter {
             icon = (ImageView) view.findViewById(R.id.app_drawer_item_icon);
             label = (TextView) view.findViewById(R.id.app_drawer_item_label);
         } else {
-            LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.app_drawer_item, null);
+            view = convertView;
             icon = (ImageView) view.findViewById(R.id.app_drawer_item_icon);
             label = (TextView) view.findViewById(R.id.app_drawer_item_label);
         }

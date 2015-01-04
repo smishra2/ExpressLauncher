@@ -21,6 +21,7 @@
 
     <TextView
         android:fontFamily="sans-serif-thin"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/empty_gestures"
         android:layout_width="match_parent"
         android:layout_height="0dp"
