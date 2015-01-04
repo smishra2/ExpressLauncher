@@ -28,7 +28,6 @@ public class AppDrawer extends Activity {
     public void onBackPressed() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
     }
 
 }
