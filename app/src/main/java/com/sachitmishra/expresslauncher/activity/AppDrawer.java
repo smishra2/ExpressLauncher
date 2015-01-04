@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.GridView;
 
 import com.sachitmishra.expresslauncher.R;
-import com.sachitmishra.expresslauncher.appdrawer.AppsAdapter;
+import com.sachitmishra.expresslauncher.adapter.AppsAdapter;
 
 /**
  * Created by Sachit on 1/3/2015.

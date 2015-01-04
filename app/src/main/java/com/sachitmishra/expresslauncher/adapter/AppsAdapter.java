@@ -1,4 +1,4 @@
-package com.sachitmishra.expresslauncher.appdrawer;
+package com.sachitmishra.expresslauncher.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sachitmishra.expresslauncher.R;
+import com.sachitmishra.expresslauncher.appdrawer.AppDisplay;
 
 import java.util.ArrayList;
 import java.util.Collections;
