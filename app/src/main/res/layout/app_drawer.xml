@@ -6,17 +6,18 @@
     <TextView
         android:fontFamily="sans-serif-thin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.09"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Apps"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="20dp"/>
     
     <GridView
         android:id="@+id/apps_grid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.91"
         android:listSelector="@android:color/transparent"
         android:numColumns="4"
         android:columnWidth="90dp"

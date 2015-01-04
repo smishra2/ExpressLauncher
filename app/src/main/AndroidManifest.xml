@@ -35,6 +35,15 @@
             android:noHistory="true">
         </activity>
 
+        <activity
+            android:name=".activity.GesturesList"
+            android:label="Express Launcher Gestures"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:noHistory="true">
+        </activity>
+
     </application>
 
 </manifest>

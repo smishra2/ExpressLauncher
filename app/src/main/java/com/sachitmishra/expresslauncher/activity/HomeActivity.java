@@ -26,7 +26,9 @@ public class HomeActivity extends Activity {
         gestureMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(HomeActivity.this, GesturesList.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
             }
         });
 
