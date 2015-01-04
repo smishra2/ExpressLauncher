@@ -3,7 +3,6 @@ package com.sachitmishra.expresslauncher.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -14,6 +13,15 @@ import com.sachitmishra.expresslauncher.R;
  * Created by Sachit on 1/2/2015.
  */
 public class HomeActivity extends Activity {
+
+    // Override animation coming in to home screen
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (Intent.ACTION_MAIN.equals(intent.getAction())) {
+            overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
