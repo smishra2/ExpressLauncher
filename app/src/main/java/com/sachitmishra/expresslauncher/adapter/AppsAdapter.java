@@ -30,19 +30,7 @@ public class AppsAdapter extends BaseAdapter {
     public AppsAdapter(Activity activity) {
         this.activity = activity;
 
-        Intent mainIntent = new Intent(Intent.ACTION_MAIN);
-        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> appResolveInfos = activity.getPackageManager().queryIntentActivities(mainIntent, 0);
-        apps = new ArrayList<>();
-        for (ResolveInfo appInfo : appResolveInfos) {
-            Drawable icon = appInfo.loadIcon(activity.getPackageManager());
-            String label = appInfo.loadLabel(activity.getPackageManager()).toString();
-            Intent intent = new Intent();
-            intent.setClassName(appInfo.activityInfo.applicationInfo.packageName,
-                    appInfo.activityInfo.name);
-            AppDisplay app = new AppDisplay(icon, label, intent);
-            apps.add(app);
-        }
+        AppDisplay.getAllApps(activity);
         Collections.sort(apps);
     }
 
