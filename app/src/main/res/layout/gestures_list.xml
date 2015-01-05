@@ -37,23 +37,26 @@
         android:layout_weight="0.10">
 
         <TextView
+            android:gravity="bottom"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceLarge"
             android:layout_marginLeft="20dp"
+            android:layout_marginBottom="15dp"
             android:text="Settings"/>
 
         <TextView
+            android:gravity="bottom"
+            android:id="@+id/new_gesture_button"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
             android:fontFamily="sans-serif-thin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceLarge"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
             android:text="Add Gesture"/>
 
     </RelativeLayout>
