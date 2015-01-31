@@ -10,6 +10,7 @@
         android:fadeOffset="700"
         android:gestureStrokeType="multiple"
         android:gestureColor="#FFF"
+        android:gestureStrokeWidth="26.4"
         android:uncertainGestureColor="#000000">
 
         <TextView
